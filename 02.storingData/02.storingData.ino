@@ -1,4 +1,4 @@
-/*
+ /*
   Author: 
   Learning Intention: The students will learn about the different data types used in the C++ language and how they can be converted for storage or computation
   Success Criteria:
@@ -15,9 +15,20 @@
     https://www.arduino.cc/reference/en/#variables
     https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/
 */
+int myInt =3;
+String myString ="3";
+bool myBool = "0";
+float myFloat = 1.1;
+
+
 
 void setup() {
-
+Serial.begin(9600);
+Serial.println("Serial Monitor is configured to 9600");
+Serial.println("---------------------------");
+Serial.print("Data stored: ");
+myString = String(myBool);
+Serial.println(myString);
 }
 
 void loop() {
