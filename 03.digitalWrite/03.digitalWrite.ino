@@ -22,20 +22,23 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/03.digitalWrite/LED_Schedmatic.png
 
 */
-static unsigned int onBoardLED = 13;
-bool LEDStatus = false;
+static unsigned int myLED = 4;
+static unsigned int myBuzzer = 3;
+
 
 void setup() {
 Serial.begin(9600);
 Serial.println("Serial monitor is configured to 9600");
 Serial.println("-------------------------------------");
-pinMode(onBoardLED, OUTPUT);
+pinMode(myLED, OUTPUT);
+pinMode(myBuzzer, OUTPUT);
 }
 
 void loop() {
-  LEDStatus = !LEDStatus;
-digitalWrite(onBoardLED, LEDStatus);
-Serial.print("onBoardLED value: ");
-Serial.println(digitalRead(onBoardLED));
-delay(1000);
+digitalWrite(myLED, HIGH);
+tone(myBuzzer, 128);
+delay(500);
+digitalWrite(myLED, LOW);
+noTone(myBuzzer);
+delay(5000);
 }
