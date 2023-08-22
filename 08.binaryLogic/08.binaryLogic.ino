@@ -30,11 +30,20 @@
   Schematic: 
     
 */
+unsigned int myLED = 13;
 
 void setup() {
+Serial.print(9600);
+Serial.println ("Serial monitor is configured to 9600");
+Serial.println("-------------------");
+pinMode (myLED,OUTPUT);
 
 }
 
 void loop() {
-
+int x = 0;
+    while (x < 200) {
+        // do statement(s) something repetitive 200 times
+        x = x + 1;
+    }
 }

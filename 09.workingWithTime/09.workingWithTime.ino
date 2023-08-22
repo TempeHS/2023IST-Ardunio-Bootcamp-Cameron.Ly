@@ -14,11 +14,36 @@
     https://github.com/TempeHS/TempeHS_Ardunio_Boilerplate/blob/main/Ardunio_Bootcamp/09.workingWithTime/Bootcamp-workingWithTime.png
 */
 
+// LED and bool to turn led on or off 
+static unsigned int myLED = 13;
+bool myLEDStatus = false;
+
+// both as longs so you can mathematically compare 
+unsigned long myLEDPrevMillis = 0;
+
+const unsigned long myLEDInterval = 2000;
+
+
 
 void setup() {
+// setup serial monitor
+Serial.begin(9600);
+Serial.println("Serial monitor is configured to 9600");
+Serial.println("---------------------");
 
+// configure LED
+pinMode (myLED,OUTPUT);
 }
 
 void loop() {
- 
+unsigned long currentMillis = millis();
+digitalWrite(myLED,myLEDStatus);
+Serial.print(currentMillis);
+Serial.print(",");
+Serial.println(myLEDStatus);
+
+if (currentMillis - myLEDPrevMillis >= myLEDInterval) {
+myLEDStatus = !myLEDStatus;
+myLEDPrevMillis = currentMillis;
+}
 }
